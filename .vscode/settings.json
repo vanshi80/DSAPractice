@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "*.ejs": "html",
+        "stdio.h": "c",
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "cmath": "cpp"
+    }
+}
