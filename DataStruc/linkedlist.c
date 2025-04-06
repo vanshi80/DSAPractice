@@ -57,6 +57,31 @@ LL* delFirst(LL* head) {
     return head;
 }
 
+// Delete last
+LL* dellast(LL * h){
+    LL*t,*p;
+    if(h==0) {
+        printf("List is empty");
+        return 0;
+    }
+    if(h->next == 0){
+        printf("Deleting %d",h->data);
+        free(h);
+        return 0;
+    }
+    t = h;
+    while(t->next->next != 0){
+        t = t->next;
+    }
+    p = t->next;
+    t->next = 0;
+    printf("Deleting %d",p->data);
+    free(p);
+    return h;
+}
+
+// Add between
+// Delete be
 // Display the list
 void display(LL* head) {
     if (head == 0) {
@@ -80,8 +105,9 @@ int main() {
         printf("1. Add First\n");
         printf("2. Add Last\n");
         printf("3. Delete First\n");
-        printf("4. Display List\n");
-        printf("5. Exit\n");
+        printf("4. Delete Last\n");
+        printf("5. Display List\n");
+        printf("6. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -96,15 +122,18 @@ int main() {
                 head = delFirst(head);
                 break;
             case 4:
-                display(head);
+                head = dellast(head);
                 break;
             case 5:
+                display(head);
+                break;
+            case 6:
                 printf("Exiting...\n");
                 break;
             default:
                 printf("Invalid choice! Please try again.\n");
         }
-    } while (choice != 5);
+    } while (choice != 6);
 
     return 0;
 }
