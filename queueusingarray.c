@@ -10,7 +10,7 @@ void insertinQ(){
 		return;
 	}
 	if(rear == -1){
-		rear = front = -1;
+		rear = front = 0;
 	}else{
 		rear++;
 	}
@@ -22,7 +22,7 @@ void deletefromQ(){
 		printf("Deletion not possible!");
 		return;
 	}
-	printf("Deleting .. %d",&queue[front]);
+	printf("Deleting .. %d",queue[front]);
 	if(front == rear){
 		front = rear = -1;
 	}
