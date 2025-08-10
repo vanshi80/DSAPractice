@@ -8,53 +8,24 @@ int front = -1, rear = -1;
 
 // Enqueue operation
 void enqueue(int value) {
-    if ((front == 0 && rear == SIZE - 1) || (rear + 1) % SIZE == front) {
-        printf("Queue Overflow.");
+    if (rear == SIZE - 1) {
+        printf("Queue Overflow");
         return;
     }
-
-    if (front == -1) {  // First element
-        front = rear = 0;
-    } else {
-        rear = (rear + 1) % SIZE;
-    }
-
+    if (front == -1)
+        front = 0;
+    rear++;
     queue[rear] = value;
 }
 
 // Dequeue operation
 void dequeue() {
-    if (front == -1) {
+    if (front == -1 || front > rear) {
         printf("Queue Underflow.\n");
         return;
     }
-
     printf("Deleting... %d \n", queue[front]);
-
-    if (front == rear) {
-        // Only one element was in the queue
-        front = rear = -1;
-    } else {
-        front = (front + 1) % SIZE;
-    }
-}
-
-// Display operation
-void display() {
-    if (front == -1) {
-        printf("Queue is empty.\n");
-        return;
-    }
-
-    printf("Queue elements: ");
-    int i = front;
-    while (1) {
-        printf("%d ", queue[i]);
-        if (i == rear)
-            break;
-        i = (i + 1) % SIZE;
-    }
-    printf("\n");
+    front++;
 }
 
 // Main function with menu
@@ -65,7 +36,7 @@ int main() {
         printf("\nMenu\n");
         printf("1. Insert in queue\n");
         printf("2. Delete from queue\n");
-        printf("4. Exit\n");
+        printf("3. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 

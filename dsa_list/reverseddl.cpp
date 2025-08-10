@@ -1,3 +1,4 @@
+// reverse function is running on gfg
 #include<stdio.h>
 #include<iostream>
 using namespace std;
@@ -47,7 +48,7 @@ class Doubly{
         Node* curr = head;
         while(curr!=NULL){
             temp = curr->prev;
-            curr->prev = curr->next;
+            curr->prev ='' curr->next;
             curr->next = temp;
     
             curr = curr->prev;
